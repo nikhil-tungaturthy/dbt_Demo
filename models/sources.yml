@@ -1,8 +1,9 @@
 version: 2
 
 sources:
-  - name: raw            # you can name this however you like
-    database: " target.database "   # or hardcode the DB name if you prefer
-    schema: analytics_raw               # <-- change to your Snowflake schema
+  - name: raw # logical name used in dbt
+    database: ANALYTICS # e.g. ANALYTICS
+    schema: analytics # e.g. RAW
     tables:
-      - name: fact_order
+      - name: fact_order # logical name
+        # identifier: FACT_ORDER           # uncomment if the physical table name differs
