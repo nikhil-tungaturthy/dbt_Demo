@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw # logical name used in dbt
+    database: ANALYTICS # e.g. ANALYTICS
+    schema: analytics # e.g. RAW
+    tables:
+      - name: fact_order # logical name
+        # identifier: FACT_ORDER           # uncomment if the physical table name differs
