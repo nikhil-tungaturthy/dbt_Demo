@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw            # you can name this however you like
+    database: " target.database "   # or hardcode the DB name if you prefer
+    schema: analytics_raw               # <-- change to your Snowflake schema
+    tables:
+      - name: fact_order
