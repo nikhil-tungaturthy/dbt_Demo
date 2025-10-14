@@ -1,0 +1,10 @@
+models:
+  - name: orders_min
+    columns:
+      - name: order_key
+        data_tests:
+          - unique
+          - not_null
+      - name: order_date
+        data_tests:
+          - not_null
