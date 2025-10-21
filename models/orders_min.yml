@@ -3,8 +3,7 @@ models:
     columns:
       - name: order_key
         data_tests:
-          - unique:
-            severity: warn
+          - unique
           - not_null
       - name: order_year
         data_tests:
