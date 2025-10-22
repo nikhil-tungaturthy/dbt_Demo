@@ -1,0 +1,12 @@
+models:
+  - name: largeorders1992
+    columns:
+      - name: order_date
+        data_tests:
+          - not_null
+      - name: order_count
+        data_tests:
+          - not_null
+      - name: clerk_name
+        data_tests:
+          - not_null
