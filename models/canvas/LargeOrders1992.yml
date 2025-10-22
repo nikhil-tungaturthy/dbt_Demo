@@ -1,12 +1,16 @@
 models:
   - name: largeorders1992
+    description: This model filters and organizes order data from 1992, focusing on orders with a positive count. It is useful for analyzing large orders within that year, sorted by the most recent order date.
     columns:
       - name: order_date
+        description: The date when the order was placed.
         data_tests:
           - not_null
       - name: order_count
+        description: The number of items in the order.
         data_tests:
           - not_null
       - name: clerk_name
+        description: The name of the clerk who processed the order.
         data_tests:
           - not_null
