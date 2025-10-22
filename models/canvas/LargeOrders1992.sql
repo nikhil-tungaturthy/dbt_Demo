@@ -1,26 +1,14 @@
-WITH fact_order AS (
-  SELECT
-    ORDER_DATE,
-    ORDER_COUNT,
-    CLERK_NAME
-  FROM {{ source('raw', 'fact_order') }}
-), filter_1 AS (
-  SELECT
-    *
-  FROM fact_order
-  WHERE
-    DATE_PART(year, ORDER_DATE) = 1992 AND ORDER_COUNT > 0
-), order_1 AS (
-  SELECT
-    *
-  FROM filter_1
-  ORDER BY
-    ORDER_DATE DESC
-), largeorders1992_sql AS (
-  SELECT
-    *
-  FROM order_1
-)
-SELECT
-  *
-FROM largeorders1992_sql
+with
+    fact_order as (
+        select order_date, order_count, clerk_name
+        from {{ source("raw", "fact_order") }}
+    ),
+    filter_1 as (
+        select *
+        from fact_order
+        where date_part(year, order_date) = 1992 and order_count > 0
+    ),
+    order_1 as (select * from filter_1 order by order_date desc),
+    largeorders1992_sql as (select * from order_1)
+select *
+from largeorders1992_sql
