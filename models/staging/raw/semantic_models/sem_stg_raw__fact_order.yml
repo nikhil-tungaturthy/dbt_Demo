@@ -52,3 +52,57 @@ semantic_models:
     agg: count_distinct
     create_metric: true
     expr: customer_key
+
+metrics:
+- name: total_order_count
+  description: Total count of orders
+  label: Total Order Count
+  type: simple
+  type_params:
+    measure:
+      name: order_count
+- name: total_gross_sales
+  description: Total gross sales amount of items
+  label: Total Gross Sales
+  type: simple
+  type_params:
+    measure:
+      name: gross_item_sales_amount
+- name: total_item_discount
+  description: Total discount amount on items
+  label: Total Item Discount
+  type: simple
+  type_params:
+    measure:
+      name: item_discount_amount
+- name: total_item_tax
+  description: Total tax amount on items
+  label: Total Item Tax
+  type: simple
+  type_params:
+    measure:
+      name: item_tax_amount
+- name: total_net_sales
+  description: Total net sales amount of items
+  label: Total Net Sales
+  type: simple
+  type_params:
+    measure:
+      name: net_item_sales_amount
+- name: distinct_customer_count
+  description: Count of distinct customers
+  label: Distinct Customer Count
+  type: simple
+  type_params:
+    measure:
+      name: count_customer_id
+- name: average_order_value
+  description: Average order value calculated as total net sales divided by total
+    order count
+  label: Average Order Value
+  type: derived
+  type_params:
+    expr: total_net_sales / total_order_count
+    metrics:
+    - name: total_net_sales
+    - name: total_order_count
