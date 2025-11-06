@@ -1,0 +1,11 @@
+semantic_models:
+  - name: time_spine
+    description: Daily time spine used by the semantic layer.
+    model: ref('mf_time_spine')
+    defaults:
+      agg_time_dimension: date_day
+    dimensions:
+      - name: date_day
+        type: time
+        type_params:
+          time_granularity: day
